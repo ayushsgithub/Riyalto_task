@@ -1,3 +1,6 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 const columns = [
   {
     name: "ID",
@@ -17,21 +20,30 @@ const columns = [
   },
   {
     name: "Edit",
-    cell: (row) => (
-      <button className="bg-blue-600 text-black p-2 rounded-md hover:bg-blue-400">
-        Edit
-      </button>
-    ),
+    cell: (row) => {
+      return (
+        <Link
+          to={`/editApi/${row.id}`}
+          className="bg-blue-600 text-black p-2 rounded-md hover:bg-blue-400"
+        >
+          Edit
+        </Link>
+      );
+    },
     maxWidth: "80px",
-    paddingleft: "100px",
   },
   {
     name: "Delete",
-    cell: (row) => (
-      <button className="bg-red-600 text-black p-2 rounded-md hover:bg-red-400">
-        Delete
-      </button>
-    ),
+    cell: (row) => {
+      return (
+        <Link
+          to={`/deleteApi/${row.id}`}
+          className="bg-red-600 text-black p-2 rounded-md hover-bg-red-400"
+        >
+          Delete
+        </Link>
+      );
+    },
     maxWidth: "80px",
   },
 ];
